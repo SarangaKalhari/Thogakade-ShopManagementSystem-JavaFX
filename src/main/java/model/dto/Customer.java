@@ -23,7 +23,7 @@ public class Customer {
 
     private String city;
 
-    private String provience;
+    private String province;
 
     private String postalCode;
 
