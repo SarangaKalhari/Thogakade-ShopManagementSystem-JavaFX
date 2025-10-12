@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -115,7 +116,35 @@ public class CustomerController implements Initializable {
     @FXML
     void btnViewOnAction(ActionEvent event) {
 
+        boolean isCustomer = false;
+
+        for(Customer c1 : customers){
+            if(txtID.getText().equals(c1.getCustID())){
+                txtTitle.setText(c1.getTitle());
+                txtName.setText(c1.getName());
+                txtDOB.setText(c1.getDob());
+                txtSalary.setText(String.valueOf(c1.getSalary()));
+                txtAddress.setText(c1.getAddress());
+                txtCity.setText(c1.getCity());
+                txtProvience.setText(c1.getProvince()); // make sure getter name matches
+                txtPostalCode.setText(c1.getPostalCode());
+
+                isCustomer = true;
+                break;
+            }
+        }
+
+        if (!isCustomer) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid User");
+            alert.setContentText("Please enter a valid Customer ID");
+            alert.showAndWait();
+        }
+
     }
+
+
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
