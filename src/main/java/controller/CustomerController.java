@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,14 +84,32 @@ public class CustomerController implements Initializable {
     @FXML
     private TextField txtTitle;
 
+    void clearTextField(){
+        txtID.clear();
+        txtTitle.clear();
+        txtName.clear();
+        txtDOB.clear();
+        txtSalary.clear();
+        txtAddress.clear();
+        txtCity.clear();
+        txtProvience.clear();
+        txtPostalCode.clear();
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
+        customers.add(new Customer(txtID.getText(), txtTitle.getText(), txtName.getText(), txtDOB.getText(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText()));
+        tblCustomer.refresh();
 
+        clearTextField();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        Customer selectedItem = tblCustomer.getSelectionModel().getSelectedItem();
+        customers.remove(selectedItem);
 
+        tblCustomer.refresh();
     }
 
     @FXML
@@ -101,7 +118,22 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void btnupdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) {
+        Customer selectedItem = tblCustomer.getSelectionModel().getSelectedItem();
+
+        selectedItem.setCustID(txtID.getText());
+        selectedItem.setTitle(txtTitle.getText());
+        selectedItem.setName(txtName.getText());
+        selectedItem.setDob(txtDOB.getText());
+        selectedItem.setSalary(Double.parseDouble(txtSalary.getText()));
+        selectedItem.setAddress(txtAddress.getText());
+        selectedItem.setCity(txtCity.getText());
+        selectedItem.setProvince(txtProvience.getText());
+        selectedItem.setPostalCode(txtPostalCode.getText());
+
+        tblCustomer.refresh();
+
+        clearTextField();
 
     }
 

@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="663.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
    <children>
       <Label layoutX="421.0" layoutY="45.0" prefHeight="59.0" prefWidth="276.0" text="Customer Management">
@@ -29,7 +28,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="32.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnupdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
+            <Button layoutX="32.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
