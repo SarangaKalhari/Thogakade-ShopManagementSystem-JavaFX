@@ -25,7 +25,13 @@ public class DashboardController {
 
     @FXML
     void employeeOnAction(ActionEvent event) {
-
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employe_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Employee Management");
+        stage.show();
     }
 
     @FXML
