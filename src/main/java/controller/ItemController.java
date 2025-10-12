@@ -5,10 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.dto.Customer;
 import model.dto.Item;
 
 import java.net.URL;
@@ -63,23 +65,67 @@ public class ItemController implements Initializable {
     @FXML
     private TextField txtUnitPrice;
 
+    void clearTextField(){
+        txtItemCode.clear();
+        txtDescription.clear();
+        txtCategory.clear();
+        txtQtyOnHand.clear();
+        txtUnitPrice.clear();
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
+        items.add(new Item(txtItemCode.getText(), txtDescription.getText(), txtCategory.getText(), Integer.parseInt(txtQtyOnHand.getText()), Double.parseDouble(txtUnitPrice.getText())));
+        tblItem.refresh();
 
+        clearTextField();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        Item isSelected = tblItem.getSelectionModel().getSelectedItem();
+        items.remove(isSelected);
+        tblItem.refresh();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        Item isSelected = tblItem.getSelectionModel().getSelectedItem();
 
+        isSelected.setItemCode(txtItemCode.getText());
+        isSelected.setDescription(txtDescription.getText());
+        isSelected.setCategory(txtCategory.getText());
+        isSelected.setQtyOnHand(Integer.parseInt(txtQtyOnHand.getText()));
+        isSelected.setUnitPrice(Double.parseDouble(txtUnitPrice.getText()));
+
+        tblItem.refresh();
+
+        clearTextField();
     }
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
+        boolean isItem = false;
+
+        for(Item itm : items){
+            if(txtItemCode.getText().equals(itm.getItemCode())){
+                txtDescription.setText(itm.getDescription());
+                txtCategory.setText(itm.getCategory());
+                txtQtyOnHand.setText(String.valueOf(itm.getQtyOnHand()));
+                txtUnitPrice.setText(String.valueOf(itm.getUnitPrice()));
+
+                isItem = true;
+                break;
+            }
+        }
+
+        if (!isItem) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid Item");
+            alert.setContentText("Please enter a item code");
+            alert.showAndWait();
+        }
 
     }
 
