@@ -30,14 +30,14 @@
                 <TableColumn fx:id="colEmail" prefWidth="77.60009765625" text="E-mail" />
             </columns>
         </TableView>
-        <TextField fx:id="txtID" layoutX="155.0" layoutY="117.0" prefHeight="26.0" prefWidth="105.0" promptText="ID" />
-        <TextField fx:id="txtName" layoutX="279.0" layoutY="117.0" prefHeight="26.0" prefWidth="80.0" promptText="Name" />
-        <TextField fx:id="txtCompanyName" layoutX="380.0" layoutY="117.0" prefHeight="26.0" prefWidth="186.0" promptText="Company Name" />
-        <TextField fx:id="txtAddress" layoutX="592.0" layoutY="117.0" prefHeight="26.0" prefWidth="142.0" promptText="Address" />
-        <TextField fx:id="txtCity" layoutX="764.0" layoutY="117.0" prefHeight="26.0" prefWidth="154.0" promptText="City" />
-        <TextField fx:id="txtPostalCode" layoutX="380.0" layoutY="160.0" prefHeight="26.0" prefWidth="186.0" promptText="Postal Code" />
-        <TextField fx:id="txtProvince" layoutX="155.0" layoutY="160.0" prefHeight="26.0" prefWidth="202.0" promptText="Province" />
-        <TextField fx:id="txtPhone" layoutX="592.0" layoutY="160.0" prefHeight="26.0" prefWidth="142.0" promptText="Phone " />
+        <TextField fx:id="txtID" layoutX="146.0" layoutY="117.0" prefHeight="26.0" prefWidth="126.0" promptText="ID" />
+        <TextField fx:id="txtName" layoutX="290.0" layoutY="117.0" prefHeight="26.0" prefWidth="198.0" promptText="Name" />
+        <TextField fx:id="txtCompanyName" layoutX="511.0" layoutY="117.0" prefHeight="26.0" prefWidth="179.0" promptText="Company Name" />
+        <TextField fx:id="txtAddress" layoutX="707.0" layoutY="117.0" prefHeight="26.0" prefWidth="209.0" promptText="Address" />
+        <TextField fx:id="txtCity" layoutX="148.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="City" />
+        <TextField fx:id="txtPostalCode" layoutX="482.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Postal Code" />
+        <TextField fx:id="txtProvince" layoutX="312.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="Province" />
+        <TextField fx:id="txtPhone" layoutX="620.0" layoutY="160.0" prefHeight="26.0" prefWidth="125.0" promptText="Phone " />
         <TextField fx:id="txtEmail" layoutX="764.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="E-mail" />
         <Button layoutX="155.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
             <font>

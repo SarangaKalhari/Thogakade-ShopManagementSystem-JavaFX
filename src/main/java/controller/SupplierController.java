@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -87,24 +88,84 @@ public class SupplierController implements Initializable {
     @FXML
     private TextField txtProvince;
 
+    void clearTextField(){
+        txtID.clear();
+        txtName.clear();
+        txtCompanyName.clear();
+        txtAddress.clear();
+        txtCity.clear();
+        txtProvince.clear();
+        txtPostalCode.clear();
+        txtPhone.clear();
+        txtEmail.clear();
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
+
+        suppliers.add(new Supplier(txtID.getText(), txtName.getText(), txtCompanyName.getText(), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtPostalCode.getText(), txtPhone.getText(), txtEmail.getText()));
+        tblSupplier.refresh();
+
+        clearTextField();
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        Supplier isSelected = tblSupplier.getSelectionModel().getSelectedItem();
+        suppliers.remove(isSelected);
+
+        tblSupplier.refresh();
 
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        Supplier selectedSupplier = tblSupplier.getSelectionModel().getSelectedItem();
 
+        selectedSupplier.setSupplierID(txtID.getText());
+        selectedSupplier.setName(txtName.getText());
+        selectedSupplier.setCompanyName(txtCompanyName.getText());
+        selectedSupplier.setAddress(txtAddress.getText());
+        selectedSupplier.setCity(txtCity.getText());
+        selectedSupplier.setProvince(txtProvince.getText());
+        selectedSupplier.setPostalCode(txtPostalCode.getText());
+        selectedSupplier.setPhone(txtPhone.getText());
+        selectedSupplier.setEmail(txtEmail.getText());
+
+        tblSupplier.refresh();
+
+        clearTextField();
     }
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
 
+        boolean isSupplier = false;
+
+        for(Supplier sup : suppliers){
+            if(sup.getSupplierID().equals(txtID.getText())){
+                txtID.setText(sup.getSupplierID());
+                txtName.setText(sup.getName());
+                txtCompanyName.setText(sup.getCompanyName());
+                txtAddress.setText(sup.getAddress());
+                txtCity.setText(sup.getCity());
+                txtProvince.setText(sup.getProvince());
+                txtPostalCode.setText(sup.getPostalCode());
+                txtPhone.setText(sup.getPhone());
+                txtEmail.setText(sup.getEmail());
+
+                isSupplier= true;
+                break;
+            }
+        }
+        if(!isSupplier){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid Supplier");
+            alert.setContentText("Please enter a valid Supplier ID");
+            alert.showAndWait();
+        }
     }
 
     @Override
