@@ -16,31 +16,8 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Pane layoutY="-3.0" prefHeight="666.0" prefWidth="131.0" style="-fx-background-color: blue;">
-         <children>
-            <Button layoutX="32.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="32.0" layoutY="293.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="25.0" prefWidth="70.0" text="View">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="32.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="32.0" layoutY="430.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="70.0" text="Delete">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <TableView fx:id="tblCustomer" layoutX="146.0" layoutY="229.0" prefHeight="322.0" prefWidth="771.0">
+      <Pane layoutY="-3.0" prefHeight="666.0" prefWidth="131.0" style="-fx-background-color: blue;" />
+      <TableView fx:id="tblCustomer" layoutX="146.0" layoutY="290.0" prefHeight="322.0" prefWidth="771.0">
         <columns>
           <TableColumn fx:id="colCustId" prefWidth="64.80001831054688" text="CustID" />
           <TableColumn fx:id="colTitle" prefWidth="40.80000305175781" text="Title" />
@@ -59,8 +36,28 @@
       <TextField fx:id="txtDOB" layoutX="592.0" layoutY="117.0" prefHeight="26.0" prefWidth="142.0" promptText="Date Of Birth" />
       <TextField fx:id="txtSalary" layoutX="764.0" layoutY="117.0" prefHeight="26.0" prefWidth="154.0" promptText="Salary" />
       <TextField fx:id="txtCity" layoutX="380.0" layoutY="160.0" prefHeight="26.0" prefWidth="186.0" promptText="City" />
-      <TextField fx:id="txtAddress" layoutX="159.0" layoutY="160.0" prefHeight="26.0" prefWidth="202.0" promptText="Address" />
+      <TextField fx:id="txtAddress" layoutX="155.0" layoutY="160.0" prefHeight="26.0" prefWidth="202.0" promptText="Address" />
       <TextField fx:id="txtProvience" layoutX="592.0" layoutY="160.0" prefHeight="26.0" prefWidth="142.0" promptText="Provience" />
       <TextField fx:id="txtPostalCode" layoutX="764.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="Postal Code" />
+      <Button layoutX="155.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="345.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="25.0" prefWidth="70.0" text="View">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="557.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="770.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="70.0" text="Delete">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

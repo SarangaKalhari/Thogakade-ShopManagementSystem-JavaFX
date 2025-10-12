@@ -30,7 +30,13 @@ public class DashboardController {
 
     @FXML
     void itemOnAction(ActionEvent event) {
-
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Item Management System");
+        stage.show();
     }
 
     @FXML
