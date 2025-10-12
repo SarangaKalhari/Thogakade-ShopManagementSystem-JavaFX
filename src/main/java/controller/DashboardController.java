@@ -41,7 +41,13 @@ public class DashboardController {
 
     @FXML
     void supplierOnAction(ActionEvent event) {
-
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Supplier Management");
+        stage.show();
     }
 
 }
