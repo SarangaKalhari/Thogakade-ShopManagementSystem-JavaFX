@@ -26,7 +26,7 @@ public class DashboardController {
     @FXML
     void employeeOnAction(ActionEvent event) {
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employe_management.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_management.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

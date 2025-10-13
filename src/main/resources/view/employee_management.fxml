@@ -33,13 +33,13 @@
         </TableView>
         <TextField fx:id="txtID" layoutX="105.0" layoutY="116.0" prefHeight="26.0" prefWidth="103.0" promptText="ID" />
         <TextField fx:id="txtName" layoutX="248.0" layoutY="116.0" prefHeight="26.0" prefWidth="154.0" promptText="Name" />
-        <TextField fx:id="txtCompanyName" layoutX="425.0" layoutY="116.0" prefHeight="26.0" prefWidth="154.0" promptText="NIC" />
-        <TextField fx:id="txtAddress" layoutX="609.0" layoutY="116.0" prefHeight="26.0" prefWidth="126.0" promptText="Date Of Birth" />
-        <TextField fx:id="txtCity" layoutX="766.0" layoutY="116.0" prefHeight="26.0" prefWidth="148.0" promptText="Position" />
-        <TextField fx:id="txtPostalCode" layoutX="248.0" layoutY="160.0" prefHeight="26.0" prefWidth="131.0" promptText="Contact Number" />
-        <TextField fx:id="txtProvince" layoutX="105.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Salary" />
-        <TextField fx:id="txtPhone" layoutX="425.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="Address" />
-        <TextField fx:id="txtEmail" layoutX="765.0" layoutY="160.0" prefHeight="26.0" prefWidth="148.0" promptText="Status" />
+        <TextField fx:id="txtNIC" layoutX="425.0" layoutY="116.0" prefHeight="26.0" prefWidth="154.0" promptText="NIC" />
+        <TextField fx:id="txtDOB" layoutX="609.0" layoutY="116.0" prefHeight="26.0" prefWidth="126.0" promptText="Date Of Birth" />
+        <TextField fx:id="txtPosition" layoutX="766.0" layoutY="116.0" prefHeight="26.0" prefWidth="148.0" promptText="Position" />
+        <TextField fx:id="txtContact" layoutX="248.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="Contact Number" />
+        <TextField fx:id="txtSalary" layoutX="105.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Salary" />
+        <TextField fx:id="txtAddress" layoutX="425.0" layoutY="160.0" prefHeight="26.0" prefWidth="154.0" promptText="Address" />
+        <TextField fx:id="txtStatus" layoutX="765.0" layoutY="160.0" prefHeight="26.0" prefWidth="148.0" promptText="Status" />
         <Button layoutX="155.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
             <font>
                 <Font name="System Bold" size="14.0" />
@@ -60,6 +60,6 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-      <TextField fx:id="txtEmail1" layoutX="609.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Joined date" />
+      <TextField fx:id="txtJoined" layoutX="609.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Joined date" />
     </children>
 </AnchorPane>

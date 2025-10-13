@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -67,50 +68,113 @@ public class EmployeeController implements Initializable {
     private TextField txtAddress;
 
     @FXML
-    private TextField txtCity;
+    private TextField txtContact;
 
     @FXML
-    private TextField txtCompanyName;
-
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private TextField txtEmail1;
+    private TextField txtDOB;
 
     @FXML
     private TextField txtID;
 
     @FXML
+    private TextField txtJoined;
+
+    @FXML
+    private TextField txtNIC;
+
+    @FXML
     private TextField txtName;
 
     @FXML
-    private TextField txtPhone;
+    private TextField txtPosition;
 
     @FXML
-    private TextField txtPostalCode;
+    private TextField txtSalary;
 
     @FXML
-    private TextField txtProvince;
+    private TextField txtStatus;
+
+    void clearTextField(){
+        txtID.clear();
+        txtName.clear();
+        txtNIC.clear();
+        txtAddress.clear();
+        txtDOB.clear();
+        txtPosition.clear();
+        txtContact.clear();
+        txtSalary.clear();
+        txtJoined.clear();
+        txtStatus.clear();
+    }
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
+
+        employees.add(new Employee(txtID.getText(), txtName.getText(), txtNIC.getText(), txtDOB.getText(), txtPosition.getText(), Double.parseDouble(txtSalary.getText()), txtContact.getText(), txtAddress.getText(), txtJoined.getText(), txtStatus.getText()));
+        tblEmployee.refresh();
+
+        clearTextField();
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        Employee selectedEmployee = tblEmployee.getSelectionModel().getSelectedItem();
+        employees.remove(selectedEmployee);
+
+        tblEmployee.refresh();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
 
+        Employee selectedEmployee = tblEmployee.getSelectionModel().getSelectedItem();
+
+        selectedEmployee.setEmployeeID(txtID.getText());
+        selectedEmployee.setName(txtName.getText());
+        selectedEmployee.setNic(txtNIC.getText());
+        selectedEmployee.setDob(txtDOB.getText());
+        selectedEmployee.setAddress(txtAddress.getText());
+        selectedEmployee.setContactNumber(txtContact.getText());
+        selectedEmployee.setPosition(txtPosition.getText());
+        selectedEmployee.setSalary(Double.parseDouble(txtSalary.getText()));
+        selectedEmployee.setJoinedDate(txtJoined.getText());
+        selectedEmployee.setStatus(txtStatus.getText());
+
+        tblEmployee.refresh();
+
+        clearTextField();
     }
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
 
+        boolean isEmployee = false;
+
+        for(Employee emp : employees){
+            if(txtID.getText().equals(emp.getEmployeeID())){
+                txtID.setText(emp.getEmployeeID());
+                txtName.setText(emp.getName());
+                txtNIC.setText(emp.getNic());
+                txtDOB.setText(emp.getDob());
+                txtPosition.setText(emp.getPosition());
+                txtSalary.setText(String.valueOf(emp.getSalary()));
+                txtAddress.setText(emp.getAddress());
+                txtContact.setText(emp.getContactNumber());
+                txtJoined.setText(emp.getJoinedDate());
+                txtStatus.setText(emp.getStatus());
+
+            }
+        }
+
+        if (!isEmployee){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid Employee");
+            alert.setContentText("Please enter a Employee ID");
+            alert.showAndWait();
+        }
     }
 
     @Override
@@ -127,6 +191,21 @@ public class EmployeeController implements Initializable {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         tblEmployee.setItems(employees);
+
+        tblEmployee.getSelectionModel().selectedItemProperty().addListener((observableValue, employee, emp) -> {
+            if(emp != null){
+                txtID.setText(emp.getEmployeeID());
+                txtName.setText(emp.getName());
+                txtNIC.setText(emp.getNic());
+                txtDOB.setText(emp.getDob());
+                txtPosition.setText(emp.getPosition());
+                txtSalary.setText(String.valueOf(emp.getSalary()));
+                txtContact.setText(emp.getContactNumber());
+                txtAddress.setText(emp.getAddress());
+                txtJoined.setText(emp.getJoinedDate());
+                txtStatus.setText(emp.getStatus());
+            }
+        });
 
     }
 }
