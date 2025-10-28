@@ -3,9 +3,11 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class DashboardController {
@@ -16,11 +18,15 @@ public class DashboardController {
     void customerOnAction(ActionEvent event) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_management.fxml"))));
+            stage.setTitle("ThogaKade");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.setTitle("ThogaKade");
+
         stage.show();
+
+        Stage currentStage = (Stage) ( (Node)event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
@@ -32,6 +38,10 @@ public class DashboardController {
         }
         stage.setTitle("Thogakade Employee Management");
         stage.show();
+
+        Stage currentStage = (Stage) ( (Node)event.getSource()).getScene().getWindow();
+        currentStage.close();
+
     }
 
     @FXML
@@ -43,6 +53,9 @@ public class DashboardController {
         }
         stage.setTitle("Thogakade Item Management System");
         stage.show();
+
+        Stage currentStage = (Stage) ( (Node)event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
@@ -54,6 +67,9 @@ public class DashboardController {
         }
         stage.setTitle("Thogakade Supplier Management");
         stage.show();
+
+        Stage currentStage = (Stage) ( (Node)event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
 }

@@ -15,6 +15,8 @@ public class Starter extends Application {
         stage.setTitle("ThogaKade Login Form");
         stage.show();
 
+
+
     }
 
 }

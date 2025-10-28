@@ -32,11 +32,14 @@ public class LoginFormController {
             if(txtPassword.getText().equals("123456")){
                 try {
                     stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard.fxml"))));
+                    stage.setTitle("ThogaKade");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                stage.setTitle("ThogaKade");
                 stage.show();
+
+                Stage currentStage = (Stage) txtUserName.getScene().getWindow();
+                currentStage.close();
             }else {
                 lblPassword.setText("Password is incorrect");
             }

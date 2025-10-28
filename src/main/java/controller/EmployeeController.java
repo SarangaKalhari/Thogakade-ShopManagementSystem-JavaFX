@@ -208,4 +208,16 @@ public class EmployeeController implements Initializable {
         });
 
     }
+
+    public void customerOnAction(ActionEvent actionEvent) {
+    }
+
+    public void itemOnAction(ActionEvent actionEvent) {
+    }
+
+    public void supplierOnAction(ActionEvent actionEvent) {
+    }
+
+    public void employeeOnAction(ActionEvent actionEvent) {
+    }
 }

@@ -4,18 +4,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.dto.Customer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
+
+    Stage stage = new Stage();
 
     ObservableList<Customer> customers = FXCollections.observableArrayList(
             new Customer("C001", "Mr.", "John Perera", "1992-05-14", 55000.00, "23 Temple Road", "Colombo", "Western", "10100"),
@@ -195,5 +201,22 @@ public class CustomerController implements Initializable {
             }
         });
 
+    }
+
+    public void customerOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void itemOnAction(ActionEvent actionEvent) {
+    }
+
+    public void supplierOnAction(ActionEvent actionEvent) {
+    }
+
+    public void employeeOnAction(ActionEvent actionEvent) {
     }
 }

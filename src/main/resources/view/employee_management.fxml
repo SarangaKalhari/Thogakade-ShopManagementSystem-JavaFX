@@ -16,7 +16,6 @@
                 <Font name="System Bold Italic" size="24.0" />
             </font>
         </Label>
-        <Pane layoutY="-3.0" prefHeight="666.0" prefWidth="96.0" style="-fx-background-color: blue;" />
         <TableView fx:id="tblEmployee" layoutX="104.0" layoutY="289.0" prefHeight="322.0" prefWidth="826.0">
             <columns>
                 <TableColumn fx:id="colSupID" prefWidth="60.000030517578125" text="ID" />
@@ -61,5 +60,29 @@
             </font>
         </Button>
       <TextField fx:id="txtJoined" layoutX="609.0" layoutY="160.0" prefHeight="26.0" prefWidth="126.0" promptText="Joined date" />
+      <Pane layoutY="-2.0" prefHeight="666.0" prefWidth="103.0" style="-fx-background-color: blue;">
+         <children>
+            <Button layoutX="7.0" layoutY="333.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="89.0" text="Customer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="7.0" layoutY="409.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="89.0" text="Item">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="7.0" layoutY="496.0" mnemonicParsing="false" onAction="#supplierOnAction" prefHeight="30.0" prefWidth="89.0" text="Supplier">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="7.0" layoutY="574.0" mnemonicParsing="false" onAction="#employeeOnAction" prefHeight="30.0" prefWidth="89.0" text="Employee">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
