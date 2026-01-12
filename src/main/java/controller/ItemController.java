@@ -4,18 +4,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.dto.Item;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ItemController implements Initializable {
+
+    Stage stage = new Stage();
 
     ObservableList <Item> items = FXCollections.observableArrayList(
         new Item("I001", "Apple iPhone 15", "Electronics", 25, 1450.00),
@@ -85,6 +92,8 @@ public class ItemController implements Initializable {
         Item isSelected = tblItem.getSelectionModel().getSelectedItem();
         items.remove(isSelected);
         tblItem.refresh();
+
+        clearTextField();
     }
 
     @FXML
@@ -150,14 +159,59 @@ public class ItemController implements Initializable {
     }
 
     public void customerOnAction(ActionEvent actionEvent) {
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_management.fxml"))));
+            stage.setTitle("ThogaKade");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
     }
 
     public void itemOnAction(ActionEvent actionEvent) {
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Item Management System");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     public void employeeOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Employee Management");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     public void supplierOnAction(ActionEvent actionEvent) {
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Supplier Management");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }
