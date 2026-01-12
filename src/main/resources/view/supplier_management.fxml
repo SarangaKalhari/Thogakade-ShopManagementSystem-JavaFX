@@ -16,7 +16,6 @@
                 <Font name="System Bold Italic" size="24.0" />
             </font>
         </Label>
-        <Pane layoutY="-3.0" prefHeight="666.0" prefWidth="131.0" style="-fx-background-color: blue;" />
         <TableView fx:id="tblSupplier" layoutX="146.0" layoutY="290.0" prefHeight="322.0" prefWidth="771.0">
             <columns>
                 <TableColumn fx:id="colSupID" prefWidth="60.000030517578125" text="ID" />
@@ -59,5 +58,29 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
+      <Pane prefHeight="666.0" prefWidth="132.0" style="-fx-background-color: blue;">
+         <children>
+            <Button layoutX="22.0" layoutY="333.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="89.0" text="Customer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="22.0" layoutY="406.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="89.0" text="Item">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="22.0" layoutY="488.0" mnemonicParsing="false" onAction="#supplierOnAction" prefHeight="30.0" prefWidth="89.0" text="Supplier">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="22.0" layoutY="568.0" mnemonicParsing="false" onAction="#employeeOnAction" prefHeight="30.0" prefWidth="89.0" text="Employee">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
