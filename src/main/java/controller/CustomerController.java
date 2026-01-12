@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -182,7 +183,7 @@ public class CustomerController implements Initializable {
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
-        colProvince.setCellValueFactory(new PropertyValueFactory<>("provience"));
+        colProvince.setCellValueFactory(new PropertyValueFactory<>("province"));
         colPostalcode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
 
         tblCustomer.setItems(customers);
@@ -212,11 +213,41 @@ public class CustomerController implements Initializable {
     }
 
     public void itemOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Item Management System");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     public void supplierOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Supplier Management");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     public void employeeOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_management.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Thogakade Employee Management");
+        stage.show();
+
+        Stage currentStage = (Stage) ( (Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }
